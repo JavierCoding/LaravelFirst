@@ -13,4 +13,4 @@
   @endforeach
 </ul>
 
-@endsection
+@endsectionphp
