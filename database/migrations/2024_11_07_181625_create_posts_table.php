@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('titulo');
             $table->string('texto');
             $table->boolean('publicado');
-           
+          //  $table->softDeletes();
+          
 
         });
     }

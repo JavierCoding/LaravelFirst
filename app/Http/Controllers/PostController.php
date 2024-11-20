@@ -14,6 +14,8 @@ class PostController extends Controller
     {
         
         $posts = Post::orderBy('created_at')->get();
+        //anadido para debuguear, permite ver toda la informacion
+       // dd($posts);
         return view('posts.index',['posts' => $posts]);
 
 
