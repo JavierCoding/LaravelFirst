@@ -34,7 +34,12 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = new Post();
+        $post->titulo = $request->titulo;
+        $post->texto = $request->texto;
+        $post->publicado = $request->has('publicado');
+        $post->save();
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -56,7 +61,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('posts.edit',['post'=>$post]);
+
     }
 
     /**
@@ -64,7 +70,12 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $post = new Post();
+        $post->titulo = $request->titulo;
+        $post->texto = $request->texto;
+        $post->publicado = $request->has('publicado');
+        $post->save();
+        return redirect()->route('posts.index');
     }
 
     /**
