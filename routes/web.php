@@ -7,16 +7,29 @@ Route::get('/', function () {
 });
 
 use App\Http\Controllers\PostController;
+
+//i leave commented the auth one, to avoid havin to login at every time, plus, there si not test user yet
 /*
-Route::controller(PostController::class)->group(function () {
-    Route::get('/posts', 'index')->name('posts.index');
-    Route::get('/posts/{post}', 'show')->name('posts.show');
-  //  Route::get('/posts/mitest', 'mitest')->name('posts.mitest');
-});
-*/
 Route::resources([
-    'posts' => PostController::class,
+  'posts' => PostController::class,
 ]);
+*/
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::resources([
+      'posts' => PostController::class,
+    ]);
+});
+
+//also this one allows pass withouth auth
+
+Route::controller(PostController::class)->group(function () {
+  Route::get('/posts', 'index')->name('posts.index');
+  Route::get('/posts/{post}', 'show')->name('posts.show');
+})->withoutMiddleware([Auth::class]);
+
+
 
 Auth::routes();
 

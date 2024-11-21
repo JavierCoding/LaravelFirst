@@ -10,6 +10,8 @@
     <div class="d-flex flex-row">
       <a href="{{route('posts.show',$post)}}"> {{$post->titulo}}</a>.
       Escrito el {{$post->created_at}}
+
+      @auth
       <a class="btn btn-warning btn-sm" href="{{route('posts.edit',$post)}}"
         role="button">Editar</a>
 
@@ -20,6 +22,8 @@
           onclick="return confirm('Are you sure?')">Delete
         </button>
       </form>
+
+      @endauth
     </div>
   </li>
 @endforeach
