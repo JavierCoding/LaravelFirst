@@ -12,6 +12,7 @@ class ComentarioSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        //still pending to work on this one
+      
     }
 }
