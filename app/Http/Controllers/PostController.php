@@ -26,7 +26,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -44,6 +44,12 @@ class PostController extends Controller
     {
         return view('posts.show',['post'=>$post]);
     }
+/*
+    public function mitest()
+    {
+        return view('posts.show');
+    }
+*/
 
     /**
      * Show the form for editing the specified resource.
